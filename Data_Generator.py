@@ -18,6 +18,12 @@ def generate_dataset(coefficients, sample_size, x_low, x_high, noise = .05):
         data_set[i] = np.asarray([x,np.sum(components[i]) + noise * np.random.normal()])
     return data_set, components
 
+# Oupput sample data points from sin function
+def generate_sin_dataset(frame):
+    x = np.arange(-frame,frame,.5)
+    y = np.sin(x)
+    return x,y
+
 # main
 if __name__ == '__main__':
     # Get Data
