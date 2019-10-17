@@ -23,7 +23,7 @@ def fit_polynomial(x_train, y_train, order = 1, epochs = 5, lr = .1, reg = 0):
         clip_gradient(gradient,1)
 
         #Update coefficients
-        coefs = coefs - learning_rate(0, lr, epoch)*gradient
+        coefs = coefs - learning_rate(0, lr, n)*gradient
 
     return coefs
 
@@ -80,17 +80,17 @@ if __name__ == '__main__':
     frame_size = 2
 
     #generate artificial data set
-    true_coefs = np.asarray([-5,0,7,3])
-    data_set, components = generate_dataset(true_coefs,100,-frame_size,
-                                            frame_size, noise = 0)
+    true_coefs = np.asarray([-5,0,7,3,6,12])
+    data_set, components = generate_dataset(true_coefs,250,-frame_size,
+                                            frame_size, noise = 2)
     x_train, y_train = data_set[:,0],data_set[:,1]
-    #x_train, y_train = generate_sin_dataset(frame_size)
+    #x_train, y_train = generate_sin_dataset(frame_size, noise = .075)
 
 
     #Fit the Model
     fit_coefs = fit_polynomial(x_train, y_train ,order = 3,
                                 epochs = 1000, lr = 0.01, reg = 0)
-    # fit_coefs = deterministic_fit(x_train,y_train,order=9)
+    # fit_coefs = deterministic_fit(x_train,y_train,order=5)
 
     #Print final coefficients and error
     print("FITTED: ", fit_coefs)

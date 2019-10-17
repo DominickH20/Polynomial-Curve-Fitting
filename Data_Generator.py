@@ -19,9 +19,11 @@ def generate_dataset(coefficients, sample_size, x_low, x_high, noise = .05):
     return data_set, components
 
 # Oupput sample data points from sin function
-def generate_sin_dataset(frame):
+def generate_sin_dataset(frame, noise = 0):
     x = np.arange(-frame,frame,.5)
     y = np.sin(x)
+    for i in range(len(y)):
+        y[i] = y[i] + noise * np.random.normal()
     return x,y
 
 # main
