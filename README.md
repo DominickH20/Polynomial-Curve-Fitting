@@ -1,11 +1,11 @@
 # Polynomial Curve Fitting
-Implementations of various methods of fitting coefficients to
-polynomials (detailed below)
+This project showcases various implementations of polynomial curve fitting algorithms. The two discussed in
+detail below are a gradient descent approach to solving this optimization problem and a deterministic global
+minimum solution to the problem.
 
 ## Gradient Descent Approach
 
-$X = 512$
-
+![alt text](./Fitted_Curve.png)
 
 
 ## Deterministic Approach

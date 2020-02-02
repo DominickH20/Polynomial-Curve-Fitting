@@ -80,7 +80,7 @@ if __name__ == '__main__':
     frame_size = 2
 
     #generate artificial data set
-    true_coefs = np.asarray([-5,0,7,3,6,12])
+    true_coefs = np.asarray([5,0,3,7])
     data_set, components = generate_dataset(true_coefs,250,-frame_size,
                                             frame_size, noise = 2)
     x_train, y_train = data_set[:,0],data_set[:,1]
@@ -88,9 +88,9 @@ if __name__ == '__main__':
 
 
     #Fit the Model
-    fit_coefs = fit_polynomial(x_train, y_train ,order = 3,
-                                epochs = 1000, lr = 0.01, reg = 0)
-    # fit_coefs = deterministic_fit(x_train,y_train,order=5)
+    # fit_coefs = fit_polynomial(x_train, y_train ,order = 3,
+    #                             epochs = 1000, lr = 0.01, reg = 0)
+    fit_coefs = deterministic_fit(x_train,y_train,order=3)
 
     #Print final coefficients and error
     print("FITTED: ", fit_coefs)
